@@ -1,0 +1,130 @@
+{
+  "project": {
+    "id": "2atp57",
+    "name": "PostEstimation",
+    "creationTs": 1733383448159,
+    "lastModifiedTs": 1733387870977,
+    "userSetData": {
+      "description": "",
+      "tags": [],
+      "contactURL": "",
+      "tutorialYouTube": ""
+    }
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "live_camera_1ycjx7",
+        "nodeSpecId": "live_camera",
+        "customData": {
+          "runContinuously": true,
+          "initialWidth": 240,
+          "initialHeight": 320,
+          "previewX": 16,
+          "previewY": 16,
+          "previewWidth": 240,
+          "previewHeight": 320
+        },
+        "uiData": {
+          "posX": -112,
+          "posY": 16,
+          "width": 176,
+          "height": 105,
+          "selected": false
+        },
+        "propValues": {
+          "hidePreview": false
+        }
+      },
+      {
+        "id": "gesture_recognition_cfn0zq",
+        "nodeSpecId": "gesture_recognition",
+        "customData": {
+          "previewX": 864,
+          "previewY": 16,
+          "previewWidth": 320,
+          "previewHeight": 240
+        },
+        "uiData": {
+          "posX": 128,
+          "posY": 16,
+          "width": 229.35888671875,
+          "height": 94,
+          "selected": false
+        },
+        "incomingEdges": {
+          "image": [
+            {
+              "sourceNodeId": "live_camera_1ycjx7",
+              "outputId": "image"
+            }
+          ]
+        }
+      },
+      {
+        "id": "classification_visualizer_596vqq",
+        "nodeSpecId": "classification_visualizer",
+        "customData": {
+          "initialWidth": 240,
+          "initialHeight": 320,
+          "previewX": 656,
+          "previewY": 0,
+          "previewWidth": 240,
+          "previewHeight": 320
+        },
+        "uiData": {
+          "posX": 432,
+          "posY": 160,
+          "width": 191.76171875,
+          "height": 105,
+          "selected": false
+        },
+        "propValues": {
+          "hidePreview": false
+        },
+        "incomingEdges": {
+          "result": [
+            {
+              "sourceNodeId": "gesture_recognition_cfn0zq",
+              "outputId": "classificationResult"
+            }
+          ]
+        }
+      },
+      {
+        "id": "landmark_visualizer_wzb7ju",
+        "nodeSpecId": "landmark_visualizer",
+        "customData": {
+          "previewX": 288,
+          "previewY": 16,
+          "previewWidth": 320,
+          "previewHeight": 240
+        },
+        "uiData": {
+          "posX": 672,
+          "posY": -32,
+          "width": 189.603515625,
+          "height": 205,
+          "selected": false
+        },
+        "propValues": {
+          "keypointScale": 2.5,
+          "color": "#fe0808",
+          "boundingBox": false,
+          "hidePreview": false
+        },
+        "incomingEdges": {
+          "landmarkResult": [
+            {
+              "sourceNodeId": "gesture_recognition_cfn0zq",
+              "outputId": "landmarkResult"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "customNodeUrls": [
+    "https://storage.googleapis.com/tfweb/visualblocks-github-bundles/@visualblocks/gemini@latest/dist/bundle.js"
+  ]
+}
